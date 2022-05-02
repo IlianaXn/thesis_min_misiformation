@@ -141,6 +141,7 @@ def distance_diff(graph: nx.DiGraph, seeds_truth: set[int], seeds_lie: set[int],
                 t -= len(out_edges)
             else:
                 edges_to_remove.extend(out_edges[:t])
+                out_edges = out_edges[t:]
                 flag = False
                 t = 0
 
@@ -179,5 +180,7 @@ def distance_diff(graph: nx.DiGraph, seeds_truth: set[int], seeds_lie: set[int],
     print('I removed:', k_edges)
     print('Initial valued:', initial_bad_spread)
     print('Final value:', initial_good_spread - current_good_spread + current_bad_spread)
+    print(len(k_edges))
+    print(len(set(k_edges)))
     dur = time.time() - start
     return values, dur
