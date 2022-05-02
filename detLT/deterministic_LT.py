@@ -87,11 +87,6 @@ def deterministic_LT(graph: nx.DiGraph, expertise: dict[int, tuple[float, float]
             activated_t = propagation(graph_truth, expertise, seeds_truth, 0)
             activated_f = propagation(graph_false, expertise, seeds_false, 1)
 
-
-            if total != initial_good - len(activated_t) + len(activated_f):
-                print('SKATA')
-
-
             # prune graphs
             graph_truth.remove_nodes_from(set(graph_truth.nodes()) - activated_t)
             graph_false.remove_nodes_from(set(graph_false.nodes()) - activated_f)
