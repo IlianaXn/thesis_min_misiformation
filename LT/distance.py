@@ -112,7 +112,7 @@ def distance_diff(graph: nx.DiGraph, seeds_truth: set[int], seeds_lie: set[int],
     out_edges = []
 
     while k:
-        if k > 50:
+        if k >= 50:
             t = 50
         else:
             t = k % 50

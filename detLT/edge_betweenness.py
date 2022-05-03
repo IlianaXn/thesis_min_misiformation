@@ -8,8 +8,8 @@ def edge_betweenness_diff(graph: nx.DiGraph, expertise: dict[int, tuple[float, f
     start = time.time()
 
     # compute truth and lie propagation
-    activated_t, _ = propagation(graph, expertise, seeds_truth, 0)
-    activated_f, _ = propagation(graph, expertise, seeds_false, 1)
+    activated_t = propagation(graph, expertise, seeds_truth, 0)
+    activated_f = propagation(graph, expertise, seeds_false, 1)
 
     initial_good = len(activated_t)
     initial_bad = len(activated_f)
@@ -75,7 +75,7 @@ def edge_betweenness_diff(graph: nx.DiGraph, expertise: dict[int, tuple[float, f
     flag = True
     out_edges = []
     while k:
-        if k > 50:
+        if k >= 50:
             t = 50
         else:
             t = k % 50
@@ -125,8 +125,8 @@ def edge_betweenness_diff(graph: nx.DiGraph, expertise: dict[int, tuple[float, f
             except nx.NetworkXError:
                 pass
 
-        activated_t, _ = propagation(graph_truth, expertise, seeds_truth, 0)
-        activated_f, _ = propagation(graph_false, expertise, seeds_false, 1)
+        activated_t = propagation(graph_truth, expertise, seeds_truth, 0)
+        activated_f = propagation(graph_false, expertise, seeds_false, 1)
 
         # prune graphs
         graph_truth.remove_nodes_from(set(graph_truth.nodes()) - activated_t)

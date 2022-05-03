@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 # greedy
-gr = [94, 85, 80, 79, 78, 77, 76, 75, 74, 73]
+gr = [67, 29, 20, 19, 18, 17, 16, 15, 14]
 
 # process
 gr_new = list(map(lambda x: x / gr[0], gr))
@@ -10,52 +10,44 @@ x_axis = list(range(len(gr)))
 
 plt.figure(1)
 plt.plot(x_axis, gr_new, 'mx-', label='Greedy', markersize=5)
-plt.ylabel('Susceptibility Ratio')
-plt.xlabel('# removed edges')
-
 
 # random
-rand = [94, 93, 92, 89, 88, 88, 82, 80, 79, 79, 72]
+rand = [67, 65, 54, 54, 53, 53, 53, 53, 53, 52, 14]
 
 # process
 rand_new = list(map(lambda x: x / rand[0], rand))
 
-k = 494
-x_axis = list(range(0, k, 50))
+k = 249
+x_axis = list(range(0, k, 25))
 x_axis.append(k)
 
-
 plt.plot(x_axis, rand_new, 'cx-', label='Random', markersize=5)
-plt.ylabel('Susceptibility Ratio')
-plt.xlabel('# removed edges')
 
 # weighted
-weighted = [94, 89, 82, 74, 73, 73, 73, 72, 72, 72, 72]
+weighted = [67, 66, 64, 63, 63, 14, 14, 14, 14, 14, 14]
 
 weighted_new = list(map(lambda x: x / weighted[0], weighted))
 
 plt.plot(x_axis, weighted_new, 'gx-', label='Weighted', markersize=5)
-plt.ylabel('Susceptibility Ratio')
-plt.xlabel('# removed edges')
 
-# distance
-betweenness = [94, 89, 102]
+# betweenness
+betweenness = [67, 28, 14, 18, 21, 22, 22, 24, 24, 24, 24, 25, 25, 25, 25, 25, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28,
+               28, 29, 29, 29, 30, 30]
 
 betweenness_new = list(map(lambda x: x / betweenness[0], betweenness))
-k = 70
+k = 768
 
-x_axis = list(range(0, k, 50))
+x_axis = list(range(0, k, 25))
 x_axis.append(k)
 
 plt.plot(x_axis, betweenness_new, 'bx-', label='EdgeBetweennessDiff', markersize=5)
-plt.ylabel('Susceptibility Ratio')
-plt.xlabel('# removed edges')
 
 plt.legend()
-plt.savefig('detLT_wiki.png')
+plt.savefig('detLT_email.png')
 
+# improved plot
 # greedy
-gr = [94, 85, 80, 79, 78, 77, 76, 75, 74, 73]
+gr = [67, 29, 20, 19, 18, 17, 16, 15, 14]
 
 # process
 gr_new = list(map(lambda x: x / gr[0], gr))
@@ -63,49 +55,40 @@ gr_new = list(map(lambda x: x / gr[0], gr))
 x_axis = list(range(len(gr)))
 
 plt.figure(2)
-# greedy
 
 plt.plot(x_axis, gr_new, 'mx-', label='Greedy', markersize=5)
-plt.ylabel('Susceptibility Ratio')
-plt.xlabel('# removed edges')
-
 
 # random
-rand = [94, 93, 92, 89, 88, 88, 82, 80, 79, 79, 72]
+rand = [67, 65, 54, 54, 53, 53, 53, 53, 53, 52, 14]
 
 # process
 rand_new = list(map(lambda x: x / rand[0], rand))
 
-k = 494
-x_axis = list(range(0, k, 50))
+k = 249
+x_axis = list(range(0, k, 25))
 x_axis.append(k)
 
-
 plt.plot(x_axis, rand_new, 'cx-', label='Random')
-plt.ylabel('Susceptibility Ratio')
-plt.xlabel('# removed edges')
 
 # weighted
-weighted = [94, 89, 82, 74, 73, 73, 73, 72, 72, 72, 72]
+weighted = [67, 66, 64, 63, 63, 14, 14, 14, 14, 14, 14]
 
 weighted_new = list(map(lambda x: x / weighted[0], weighted))
 
 plt.plot(x_axis, weighted_new, 'gx-', label='Weighted')
-plt.ylabel('Susceptibility Ratio')
-plt.xlabel('# removed edges')
 
 # betweenness
-betweenness = [94, 89, 102]
-
+betweenness = [67, 28, 14, 18, 21, 22, 22, 24, 24, 24, 24, 25, 25, 25, 25, 25, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28,
+               28, 29, 29, 29, 30, 30]
 betweenness = betweenness[:len(x_axis)]
 
 betweenness_new = list(map(lambda x: x / betweenness[0], betweenness))
 
-x_axis[- 1] = x_axis[- 2] + 50
+x_axis[- 1] = x_axis[- 2] + 25
 
 plt.plot(x_axis, betweenness_new, 'bx-', label='EdgeBetweennessDiff')
+
 plt.ylabel('Susceptibility Ratio')
 plt.xlabel('# removed edges')
-
 plt.legend()
-plt.savefig('detLT_fb_improved.png')
+plt.savefig('detLT_email_improved.png')

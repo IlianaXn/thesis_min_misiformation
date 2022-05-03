@@ -10,8 +10,8 @@ def weighted_removal(graph: nx.DiGraph, expertise: dict[int, tuple[float, float]
     edges = list(graph.out_edges(seeds_lie, data='weight'))
 
     # compute truth and lie propagation
-    activated_t, _ = propagation(graph, expertise, seeds_truth, 0)
-    activated_f, _ = propagation(graph, expertise, seeds_lie, 1)
+    activated_t = propagation(graph, expertise, seeds_truth, 0)
+    activated_f = propagation(graph, expertise, seeds_lie, 1)
 
     initial_good = len(activated_t)
     initial_bad = len(activated_f)
@@ -48,8 +48,8 @@ def weighted_removal(graph: nx.DiGraph, expertise: dict[int, tuple[float, float]
 
         graph.remove_edges_from(edges_to_remove)
 
-        activated_t, _ = propagation(graph, expertise, seeds_truth, 0)
-        activated_f, _ = propagation(graph, expertise, seeds_lie, 1)
+        activated_t = propagation(graph, expertise, seeds_truth, 0)
+        activated_f = propagation(graph, expertise, seeds_lie, 1)
 
         removed_edges.extend(edges_to_remove)
         values.append(initial_good - len(activated_t) + len(activated_f))
