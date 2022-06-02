@@ -1,11 +1,16 @@
 import networkx as nx
 import numpy as np
 
-path = 'graphs/Cit-HepTh.txt'
+path = 'graphs/email-Eu-core.txt'
 
 initial_graph = nx.read_edgelist(path, nodetype=int, create_using=nx.DiGraph)
 
 # initial_graph = nx.read_edgelist(path, nodetype=int)
+
+initial_graph.remove_edges_from(nx.selfloop_edges(initial_graph))
+
+isolated_nodes = list(nx.isolates(initial_graph))
+initial_graph.remove_nodes_from(isolated_nodes)
 
 graph = nx.convert_node_labels_to_integers(initial_graph)
 

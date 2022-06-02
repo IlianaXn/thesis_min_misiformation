@@ -4,8 +4,7 @@ from numpy import random
 import time
 
 def random_removal(graph: nx.DiGraph, expertise: dict[int, tuple[float, float]], seeds_truth: set[int], seeds_false: set[int] ,k: int):
-    start = time.time()
-
+    start_t = time.time()
     # compute truth and lie propagation
     activated_t = propagation(graph, expertise, seeds_truth, 0)
     activated_f = propagation(graph, expertise, seeds_false, 1)
@@ -48,5 +47,5 @@ def random_removal(graph: nx.DiGraph, expertise: dict[int, tuple[float, float]],
     print('I removed:', removed_edges)
     print('Initial value:', initial_value)
     print('Final value:', values[- 1])
-    dur = time.time() - start
+    dur = time.time() - start_t
     return values, dur

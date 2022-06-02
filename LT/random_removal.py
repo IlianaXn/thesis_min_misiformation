@@ -5,7 +5,7 @@ import time
 
 
 def random_removal(graph: nx.DiGraph, seeds_truth: set[int], seeds_lie: set[int], k: int):
-    start = time.time()
+    start_t = time.time()
 
     edges = list(graph.out_edges(seeds_lie))
 
@@ -105,5 +105,5 @@ def random_removal(graph: nx.DiGraph, seeds_truth: set[int], seeds_lie: set[int]
     print('I removed:', removed_edges)
     print('Initial value:', initial_bad_spread)
     print('Final value:', initial_good_spread - current_good_spread + current_bad_spread)
-    dur = time.time() - start
+    dur = time.time() - start_t
     return values, dur

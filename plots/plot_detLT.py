@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 # greedy
-gr = [67, 29, 20, 19, 18, 17, 16, 15, 14]
+gr = [72, 60, 53, 49, 46, 44, 18, 17, 16, 15, 14, 13]
 
 # process
 gr_new = list(map(lambda x: x / gr[0], gr))
@@ -12,30 +12,29 @@ plt.figure(1)
 plt.plot(x_axis, gr_new, 'mx-', label='Greedy', markersize=5)
 
 # random
-rand = [67, 65, 54, 54, 53, 53, 53, 53, 53, 52, 14]
+rand = [72, 72, 72, 68, 68, 68, 14, 13, 13, 13, 12]
 
 # process
 rand_new = list(map(lambda x: x / rand[0], rand))
 
-k = 249
+k = 240
 x_axis = list(range(0, k, 25))
 x_axis.append(k)
 
 plt.plot(x_axis, rand_new, 'cx-', label='Random', markersize=5)
 
 # weighted
-weighted = [67, 66, 64, 63, 63, 14, 14, 14, 14, 14, 14]
+weighted = [72, 66, 66, 66, 65, 12, 12, 12, 12, 12, 12]
 
 weighted_new = list(map(lambda x: x / weighted[0], weighted))
 
 plt.plot(x_axis, weighted_new, 'gx-', label='Weighted', markersize=5)
 
 # betweenness
-betweenness = [67, 28, 14, 18, 21, 22, 22, 24, 24, 24, 24, 25, 25, 25, 25, 25, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28,
-               28, 29, 29, 29, 30, 30]
+betweenness = [72, 17, 19, 19, 20, 25, 28, 28, 30, 30, 30, 30, 30, 32, 32, 32, 32, 32, 34, 34, 35, 35, 35, 35, 35, 35, 35, 35, 36, 36, 36]
 
 betweenness_new = list(map(lambda x: x / betweenness[0], betweenness))
-k = 768
+k = 748
 
 x_axis = list(range(0, k, 25))
 x_axis.append(k)
@@ -47,7 +46,7 @@ plt.savefig('detLT_email.png')
 
 # improved plot
 # greedy
-gr = [67, 29, 20, 19, 18, 17, 16, 15, 14]
+gr = [72, 60, 53, 49, 46, 44, 18, 17, 16, 15, 14, 13]
 
 # process
 gr_new = list(map(lambda x: x / gr[0], gr))
@@ -59,27 +58,27 @@ plt.figure(2)
 plt.plot(x_axis, gr_new, 'mx-', label='Greedy', markersize=5)
 
 # random
-rand = [67, 65, 54, 54, 53, 53, 53, 53, 53, 52, 14]
+rand = [72, 72, 72, 68, 68, 68, 14, 13, 13, 13, 12]
 
 # process
 rand_new = list(map(lambda x: x / rand[0], rand))
 
-k = 249
+k = 240
 x_axis = list(range(0, k, 25))
 x_axis.append(k)
 
 plt.plot(x_axis, rand_new, 'cx-', label='Random')
 
 # weighted
-weighted = [67, 66, 64, 63, 63, 14, 14, 14, 14, 14, 14]
+weighted = [72, 66, 66, 66, 65, 12, 12, 12, 12, 12, 12]
 
 weighted_new = list(map(lambda x: x / weighted[0], weighted))
 
 plt.plot(x_axis, weighted_new, 'gx-', label='Weighted')
 
 # betweenness
-betweenness = [67, 28, 14, 18, 21, 22, 22, 24, 24, 24, 24, 25, 25, 25, 25, 25, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28,
-               28, 29, 29, 29, 30, 30]
+betweenness = [72, 17, 19, 19, 20, 25, 28, 28, 30, 30, 30, 30, 30, 32, 32, 32, 32, 32, 34, 34, 35, 35, 35, 35, 35, 35, 35, 35, 36, 36, 36]
+
 betweenness = betweenness[:len(x_axis)]
 
 betweenness_new = list(map(lambda x: x / betweenness[0], betweenness))

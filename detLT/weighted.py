@@ -5,7 +5,7 @@ import time
 
 
 def weighted_removal(graph: nx.DiGraph, expertise: dict[int, tuple[float, float]], seeds_truth: set[int], seeds_lie: set[int], k: int):
-    start = time.time()
+    start_t = time.time()
 
     edges = list(graph.out_edges(seeds_lie, data='weight'))
 
@@ -62,5 +62,5 @@ def weighted_removal(graph: nx.DiGraph, expertise: dict[int, tuple[float, float]
     print('I removed:', removed_edges)
     print('Initial value:', initial_value)
     print('Final value:', values[-1])
-    dur = time.time() - start
+    dur = time.time() - start_t
     return values, dur
